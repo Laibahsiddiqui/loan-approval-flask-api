@@ -1,0 +1,94 @@
+Create a Loan Approval Prediction web app frontend and connect it to my Flask API.
+
+The backend endpoint is:
+
+POST /predict
+
+The app should have a clean form with these input fields:
+
+1. Age - number
+2. AnnualIncome - number
+3. CreditScore - number
+4. EmploymentStatus - dropdown: Employed, Self-Employed, Unemployed
+5. EducationLevel - dropdown: High School, Associate, Bachelor, Master, Doctorate
+6. Experience - number
+7. LoanAmount - number
+8. LoanDuration - number
+9. MaritalStatus - dropdown: Single, Married, Divorced, Widowed
+10. NumberOfDependents - number
+11. HomeOwnershipStatus - dropdown: Own, Rent, Mortgage, Other
+12. MonthlyDebtPayments - number
+13. CreditCardUtilizationRate - number/decimal
+14. NumberOfOpenCreditLines - number
+15. NumberOfCreditInquiries - number
+16. DebtToIncomeRatio - number/decimal
+17. BankruptcyHistory - dropdown: 0, 1
+18. LoanPurpose - dropdown: Home, Auto, Education, Debt Consolidation, Other
+19. PreviousLoanDefaults - dropdown: 0, 1
+20. PaymentHistory - number
+21. LengthOfCreditHistory - number
+22. SavingsAccountBalance - number
+23. CheckingAccountBalance - number
+24. TotalAssets - number
+25. TotalLiabilities - number
+26. MonthlyIncome - number
+27. UtilityBillsPaymentHistory - number/decimal
+28. JobTenure - number
+29. NetWorth - number
+30. TotalDebtToIncomeRatio - number/decimal
+
+Do not include LoanApproved because it is the output.
+
+When the user clicks Predict:
+- collect all form values
+- send a POST request to the Flask API /predict endpoint
+- send the data as JSON
+- display loading while waiting
+- display the returned result
+
+Example request body:
+{
+  "Age": 35,
+  "AnnualIncome": 75000,
+  "CreditScore": 680,
+  "EmploymentStatus": "Employed",
+  "EducationLevel": "Bachelor",
+  "Experience": 10,
+  "LoanAmount": 20000,
+  "LoanDuration": 48,
+  "MaritalStatus": "Married",
+  "NumberOfDependents": 2,
+  "HomeOwnershipStatus": "Own",
+  "MonthlyDebtPayments": 400,
+  "CreditCardUtilizationRate": 0.25,
+  "NumberOfOpenCreditLines": 4,
+  "NumberOfCreditInquiries": 1,
+  "DebtToIncomeRatio": 0.25,
+  "BankruptcyHistory": 0,
+  "LoanPurpose": "Home",
+  "PreviousLoanDefaults": 0,
+  "PaymentHistory": 25,
+  "LengthOfCreditHistory": 12,
+  "SavingsAccountBalance": 5000,
+  "CheckingAccountBalance": 2000,
+  "TotalAssets": 150000,
+  "TotalLiabilities": 30000,
+  "MonthlyIncome": 6250,
+  "UtilityBillsPaymentHistory": 0.90,
+  "JobTenure": 5,
+  "NetWorth": 120000,
+  "TotalDebtToIncomeRatio": 0.20
+}
+
+Example response:
+{
+  "prediction": 1,
+  "result": "Loan Approved",
+  "approval_probability": 0.92
+}
+
+If result is Loan Approved, show a green success card.
+If result is Loan Rejected, show a red warning card.
+Also show approval probability if it is returned by the API.
+
+Make the design clean, modern, responsive, and suitable for a banking/finance ML project.
